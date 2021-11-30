@@ -17,12 +17,15 @@ import java.util.concurrent.TimeUnit;
 public class TestBase {
 
 
-    private static final String HOST = "localhost";
-    private static final int PORT = 8080;
-    private static final String URL = String.format("http://%s:%d/%s", HOST, PORT, "%s");
-    private static final WireMockServer WIRE_MOCK_SERVER = new WireMockServer(PORT);
 
+    public static final String HOST = "localhost";
+    public static final int PORT = 8080;
+    /*
+    public static final String URL = String.format("http://%s:%d/%s", HOST, PORT, "%s");
+    String apiURL = String.format(TestBase.URL, "api/goods");
+ */
 
+    public static final WireMockServer WIRE_MOCK_SERVER = new WireMockServer(PORT);
     public WebDriver driver;
     LPpage landingPage;
 
