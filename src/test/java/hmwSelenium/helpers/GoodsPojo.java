@@ -4,11 +4,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GoodsPojo {
-
     private String name;
     private String availability;
-    @JsonProperty("code")
-    private String pseudoCode;
+  //  @JsonProperty("Code")
+    private String code;
 
     public String getName() {
         return name;
@@ -18,8 +17,8 @@ public class GoodsPojo {
         return availability;
     }
 
-    public String getPseudoCode() {
-        return pseudoCode;
+    public String getCode() {
+        return code;
     }
 
     public void setName(String name) {
@@ -30,7 +29,16 @@ public class GoodsPojo {
         this.availability = availability;
     }
 
-    public void setPseudoCode(String pseudoCode) {
-        this.pseudoCode = pseudoCode;
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public GoodsPojo(String name, String availability, String code) {
+        this.name = name;
+        this.availability = availability;
+        this.code = code;
+    }
+    public GoodsPojo() {
+
     }
 }

@@ -27,7 +27,6 @@ public class TestBase {
 
     public static final WireMockServer WIRE_MOCK_SERVER = new WireMockServer(PORT);
     public WebDriver driver;
-    LPpage landingPage;
 
 
 
@@ -38,9 +37,11 @@ public class TestBase {
         //   WebDriverManager.chromedriver().setup();
         System.setProperty("webdriver.chrome.driver","chromedriver.exe");
         //   driver = new FirefoxDriver();
+
         if (driver == null) {
             driver = new ChromeDriver();
         }
+
         // driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.manage().window().maximize();
