@@ -14,7 +14,7 @@ public class BasePage {
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        //  this.action = new Actions(driver);
+          //this.action = new Actions(driver);
 
     }
 
@@ -27,7 +27,7 @@ public class BasePage {
     }
 
     protected void waitForLoad(WebElement element, WebDriverWait wait){
-        wait.until(ExpectedConditions.visibilityOf(element));
+            wait.until(ExpectedConditions.visibilityOf(element));
 
     }
 

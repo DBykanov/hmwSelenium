@@ -44,9 +44,10 @@ public class TestBase {
 
         // driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
 
-        //landingPage = new LPpage(driver);
+        //landingPage lp = new LPpage(driver);
     }
 
 
