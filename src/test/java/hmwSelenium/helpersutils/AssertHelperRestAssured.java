@@ -70,8 +70,9 @@ public class AssertHelperRestAssured extends TestBase {
                 }
             }
         }
-        @Test
+      //  @Test
         public void getAndcompareRetrievedData() throws IOException {
+       //     driver.get(Utils.props());
             checkEqualness(goodsChangeCode(getgoods()));
     }
 
