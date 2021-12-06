@@ -14,13 +14,6 @@ public class PCShopTest extends TestBase{
 
     private static final Logger LOG = LogManager.getLogger(PCShopTest.class.getName());
 
-/*
-    @BeforeTest
-    public void setupProps() throws IOException{
-        Props.initConfigProp();
-    }
-
- */
     @Test
     public void findAndCompare () {
         LOG.debug("Перехожу на ЛП страницу");
