@@ -16,8 +16,6 @@ import java.util.concurrent.TimeUnit;
 
 public class TestBase {
 
-
-
     public static final String HOST = "localhost";
     public static final int PORT = 8080;
     /*
@@ -28,14 +26,12 @@ public class TestBase {
     public static final WireMockServer WIRE_MOCK_SERVER = new WireMockServer(PORT);
     public WebDriver driver;
 
-
-
     @BeforeTest
     public void setup() {
 
         //  WebDriverManager.firefoxdriver().setup();
         //   WebDriverManager.chromedriver().setup();
-        System.setProperty("webdriver.chrome.driver","chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","/home/user/projects/common/study_plan/workspace/lessonRest1/src/test/resources/chromedriver");
         //   driver = new FirefoxDriver();
 
         if (driver == null) {
@@ -43,7 +39,7 @@ public class TestBase {
         }
 
         // driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
 
@@ -51,7 +47,7 @@ public class TestBase {
     }
 
 
-    @AfterTest
+    @AfterTest(alwaysRun = true)
     public void tearDown() {
         driver.quit();
         driver = null;

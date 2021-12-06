@@ -10,10 +10,10 @@ public class Utils {
     public static Properties configProp;
     public static String propertiesFilePath = "C:\\Users\\Power1nside\\IdeaProjects\\hmwSelenium\\src\\test\\java\\resources\\demo.properties";
 
-    public static String props() throws IOException {
+    public static void initConfigProp() throws IOException {
         configProp = new Properties();
-        configProp.load(new FileInputStream(propertiesFilePath));
-        return configProp.getProperty("url");
+        //configProp.load(new FileInputStream(propertiesFilePath));
+        //return configProp;
     }
 
 

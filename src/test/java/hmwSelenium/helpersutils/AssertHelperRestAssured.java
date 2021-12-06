@@ -6,6 +6,7 @@ import org.hamcrest.Matchers;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import io.restassured.http.ContentType;
+import org.testng.asserts.SoftAssert;
 
 import java.io.IOException;
 import java.util.*;
@@ -13,7 +14,7 @@ import java.util.*;
 import static io.restassured.RestAssured.given;
 
 
-public class AssertHelperRestAssured extends TestBase {
+public class AssertHelperRestAssured {
 
 
 
@@ -54,26 +55,30 @@ public class AssertHelperRestAssured extends TestBase {
     }
 
 
-    public void checkEqualness(List<GoodsPojo> goods) {
-        LPpage lpPage = new LPpage(driver);
+    public void checkEqualness(List<GoodsPojo> goods, LPpage lpPage) {
 
+        SoftAssert softAssert = new SoftAssert();
             for (int i = 0; i < goods.size(); i++) {
                 try {
                     lpPage.search(goods.get(i).getName());
-                 //   Assert.assertTrue();
-                   Assert.assertEquals(lpPage.deferCurrentElementName(goods.get(i).getName()), goods.get(i).getName());
-                   Assert.assertEquals(lpPage.textAvailability(),goods.get(i).getAvailability());
-                   Assert.assertEquals(lpPage.getConvertedCode(),goods.get(i).getCode());
+
+                    softAssert.assertEquals(lpPage.deferCurrentElementName(goods.get(i).getName(), softAssert), goods.get(i).getName());
+                    softAssert.assertEquals(lpPage.textAvailability(),goods.get(i).getAvailability());
+                    softAssert.assertEquals(lpPage.getConvertedCode(),goods.get(i).getCode());
+//                   Assert.assertEquals(lpPage.deferCurrentElementName(goods.get(i).getName()), goods.get(i).getName());
+//                   Assert.assertEquals(lpPage.textAvailability(),goods.get(i).getAvailability());
+//                   Assert.assertEquals(lpPage.getConvertedCode(),goods.get(i).getCode());
 
                 } catch(NoSuchElementException e) {
                     System.out.println("Test is failed, element"+ goods.get(i).getName());
                 }
             }
+        softAssert.assertAll();
         }
       //  @Test
-        public void getAndcompareRetrievedData() throws IOException {
+        public void getAndcompareRetrievedData(LPpage lpPage) {
        //     driver.get(Utils.props());
-            checkEqualness(goodsChangeCode(getgoods()));
+            checkEqualness(goodsChangeCode(getgoods()), lpPage);
     }
 
 }
