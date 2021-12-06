@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
+import java.util.NoSuchElementException;
 
 public class LPpage extends BasePage {
 
@@ -51,17 +52,18 @@ public class LPpage extends BasePage {
     }
 
     public String deferCurrentElementName(String name, SoftAssert softAssert) {
-        WebElement nameOnElement = null;
+        WebElement nameOnElement;
         waitForLoad(Pagelogo, wait);
         try {
             nameOnElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@class='product-thumb__name' and text()='" + name + "']")));
-            // nameOnElement = driver.findElement(By.xpath("//span[@class='product-thumb__name' and text()='" + name + "']"));
             return nameOnElement.getText();
-        } catch (TimeoutException e) {
-            softAssert.fail("sdjsldfsdf");
+        } catch (TimeoutException | NoSuchElementException e) {
+            softAssert.fail("wasn't possible to find:" + name);
         }
         return null;
     }
+
+
 
 
     public String textAvailability() {

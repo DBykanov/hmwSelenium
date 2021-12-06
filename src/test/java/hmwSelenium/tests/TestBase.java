@@ -1,6 +1,7 @@
 package hmwSelenium.tests;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
+import hmwSelenium.helpersutils.Props;
 import hmwSelenium.pages.LPpage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
+import java.io.IOException;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
@@ -27,16 +29,17 @@ public class TestBase {
     public WebDriver driver;
 
     @BeforeTest
-    public void setup() {
+    public void setup() throws IOException {
 
         //  WebDriverManager.firefoxdriver().setup();
         //   WebDriverManager.chromedriver().setup();
-        System.setProperty("webdriver.chrome.driver","/home/user/projects/common/study_plan/workspace/lessonRest1/src/test/resources/chromedriver");
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\Power1nside\\IdeaProjects\\hmwSelenium\\src\\test\\java\\resources\\chromedriver.exe");
         //   driver = new FirefoxDriver();
 
         if (driver == null) {
             driver = new ChromeDriver();
         }
+        Props.initConfigProp();
 
         // driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

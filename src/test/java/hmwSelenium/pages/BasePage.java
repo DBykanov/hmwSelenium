@@ -14,7 +14,6 @@ public class BasePage {
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-          //this.action = new Actions(driver);
 
     }
 
