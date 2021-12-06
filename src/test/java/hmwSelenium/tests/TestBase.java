@@ -33,7 +33,7 @@ public class TestBase {
 
         //  WebDriverManager.firefoxdriver().setup();
         //   WebDriverManager.chromedriver().setup();
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\Power1nside\\IdeaProjects\\hmwSelenium\\src\\test\\java\\resources\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\Power1nside\\IdeaProjects\\hmwSelenium\\src\\test\\resources\\chromedriver.exe");
         //   driver = new FirefoxDriver();
 
         if (driver == null) {
